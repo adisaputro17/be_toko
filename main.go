@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -62,7 +63,7 @@ func main() {
 		NewClaimsFunc: func(c echo.Context) jwt.Claims {
 			return new(entity.JWTCustomClaims)
 		},
-		SigningKey: []byte("secret"),
+		SigningKey: []byte(entity.Sign),
 	}
 	r.Use(echojwt.WithConfig(config))
 	r.GET("/category", rest.GetProductCategory)
@@ -70,5 +71,6 @@ func main() {
 	r.GET("/product/:product_id", rest.GetProductByProductID)
 	r.POST("/cart", rest.InsertCart)
 
-	e.Logger.Fatal(e.Start(":1323"))
+	e.Logger.Fatal(e.Start(fmt.Sprintf(":%s", appConfig.AppPort)))
+
 }

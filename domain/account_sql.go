@@ -28,7 +28,7 @@ func (d *domain) sqlCreateAccount(tx *sql.Tx, v entity.Account) (*sql.Tx, error)
 
 func (d *domain) sqlReadAccountByUsernameAndPassword(ctx context.Context, p entity.LoginRequest) (entity.Account, error) {
 	result := entity.Account{}
-	row := d.DB.QueryRowContext(ctx, readAccountByUsernameAndPassword, p.Name, p.Password)
+	row := d.DB.QueryRowContext(ctx, readAccountByUsernameAndPassword, p.Username, p.Password)
 
 	err := row.Scan(
 		&result.AccountID,

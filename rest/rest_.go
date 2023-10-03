@@ -41,9 +41,9 @@ func (rest *rest) Login(c echo.Context) error {
 	}
 
 	// Set custom claims
-	claims := &entity.JWTCustomClaims{
-		account.AccountID,
-		jwt.RegisteredClaims{
+	claims := entity.JWTCustomClaims{
+		AccountID: account.AccountID,
+		RegisteredClaims: jwt.RegisteredClaims{
 			ExpiresAt: jwt.NewNumericDate(time.Now().Add(time.Hour * 72)),
 		},
 	}
@@ -52,7 +52,7 @@ func (rest *rest) Login(c echo.Context) error {
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 
 	// Generate encoded token and send it as response.
-	t, err := token.SignedString([]byte("secret"))
+	t, err := token.SignedString([]byte(entity.Sign))
 	if err != nil {
 		return err
 	}

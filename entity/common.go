@@ -6,6 +6,10 @@ import (
 	"github.com/golang-jwt/jwt/v5"
 )
 
+const (
+	Sign = "adhisaputro17"
+)
+
 type AppConfig struct {
 	AppPort  string
 	DBConfig DatabaseConfig
@@ -19,10 +23,10 @@ type DatabaseConfig struct {
 }
 
 type CommonField struct {
-	CreatedAt time.Time `json:"created_at"`
-	CreatedBy int64     `json:"created_by"`
-	UpdatedAt time.Time `json:"updated_at"`
-	UpdatedBy int64     `json:"updated_by"`
+	CreatedAt time.Time `json:"-"`
+	CreatedBy int64     `json:"-"`
+	UpdatedAt time.Time `json:"-"`
+	UpdatedBy int64     `json:"-"`
 }
 
 type JWTCustomClaims struct {

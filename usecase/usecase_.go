@@ -3,6 +3,7 @@ package usecase
 import (
 	"context"
 	"encoding/base64"
+	"errors"
 	"fmt"
 	"time"
 
@@ -70,6 +71,15 @@ func (u *usecase) InsertCart(ctx context.Context, request entity.InsertCartReque
 	err := u.Validate.Struct(request)
 	if err != nil {
 		return entity.Cart{}, err
+	}
+
+	product, err := u.GetProductByProductID(ctx, request.ProductID)
+	if err != nil {
+		return entity.Cart{}, err
+	}
+
+	if request.Qty > product.Stock {
+		return entity.Cart{}, errors.New("quantity exceeds limit")
 	}
 
 	timeNowUTC := time.Now().UTC()
