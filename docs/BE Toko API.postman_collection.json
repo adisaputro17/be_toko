@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "2f497d2a-f8d5-446f-906f-44c70f8d73c5",
+		"name": "BE Toko API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:1323/daftar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fullname\":\"Adhi Dwi Saputro\",\n    \"username\":\"adhisaputro17\",\n    \"password\":\"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:1323/daftar",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"daftar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:1323/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"adhisaputro17\",\n    \"password\":\"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:1323/login",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:1323/restricted/category",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTY5NjMwNzc1NiIsImV4cCI6MTY5NjU2NzA0OX0.g5c6jSNBUGBxKN1rZxtoY48_M__E5ssLuFIDbpvRw_M",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:1323/restricted/category",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"restricted",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:1323/restricted/product/category/1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTY5NjMwNzc1NiIsImV4cCI6MTY5NjU2NzA0OX0.g5c6jSNBUGBxKN1rZxtoY48_M__E5ssLuFIDbpvRw_M",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:1323/restricted/product/category/1",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"restricted",
+						"product",
+						"category",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:1323/restricted/product/productID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTY5NjMwNzc1NiIsImV4cCI6MTY5NjU2NzA0OX0.g5c6jSNBUGBxKN1rZxtoY48_M__E5ssLuFIDbpvRw_M",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:1323/restricted/product/productID",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"restricted",
+						"product",
+						"productID"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:1323/restricted/cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2NvdW50X2lkIjoiMTY5NjMwNzc1NiIsImV4cCI6MTY5NjU2NzA0OX0.g5c6jSNBUGBxKN1rZxtoY48_M__E5ssLuFIDbpvRw_M",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"product_id\":\"productID\",\n    \"qty\":80\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:1323/restricted/cart",
+					"host": [
+						"localhost"
+					],
+					"port": "1323",
+					"path": [
+						"restricted",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
